@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS incidents (
+ id BIGSERIAL PRIMARY KEY,
+ title VARCHAR(255) NOT NULL,
+ service VARCHAR(255),
+ severity VARCHAR(50),
+ status VARCHAR(50),
+ root_cause TEXT,
+ confidence INTEGER,
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

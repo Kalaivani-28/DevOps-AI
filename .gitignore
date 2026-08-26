@@ -1,0 +1,32 @@
+# Node
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+npm-debug.log*
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Java / Maven
+backend/target/
+*.class
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

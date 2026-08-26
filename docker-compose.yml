@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: devopsai
+      POSTGRES_USER: devops
+      POSTGRES_PASSWORD: devops
+    ports: ["5432:5432"]
+    volumes: [postgres_data:/var/lib/postgresql/data]
+
+  backend:
+    image: maven:3.9-eclipse-temurin-17
+    working_dir: /app
+    volumes: ["./backend:/app"]
+    command: mvn spring-boot:run
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/devopsai
+      SPRING_DATASOURCE_USERNAME: devops
+      SPRING_DATASOURCE_PASSWORD: devops
+      AI_SERVICE_URL: http://ai-service:8000
+    ports: ["8080:8080"]
+    depends_on: [postgres, ai-service]
+
+  ai-service:
+    image: python:3.12-slim
+    working_dir: /app
+    volumes: ["./ai-service:/app"]
+    command: sh -c "pip install -r requirements.txt && uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    ports: ["8000:8000"]
+
+  frontend:
+    image: node:22
+    working_dir: /app
+    volumes: ["./frontend:/app"]
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    ports: ["5173:5173"]
+    depends_on: [ai-service]
+
+volumes:
+  postgres_data:
