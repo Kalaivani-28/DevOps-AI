@@ -36,6 +36,37 @@ Frontend:
 Backend:
 `cd backend`
 `mvn spring-boot:run`
+## 📸 Screenshots
+
+### 🔐 Login Page
+![Login Page](screenshots/login.png)
+
+### 📊 Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### 🚨 Incident Management
+![Incidents](screenshots/incidents.png)
+
+### 🤖 AI Incident Analyzer
+![AI Analyzer](screenshots/ai-analyzer.png)
+
+### 🖥️ Service Monitoring
+![Services](screenshots/services.png)
+
+### 🔔 Alerts
+![Alerts](screenshots/alerts.png)
+
+### 📈 Reports
+![Reports](screenshots/reports.png)
+
+### 👤 Profile
+![Profile](screenshots/profile.png)
+
+### ⚙️ Settings
+![Settings](screenshots/settings.png)
+
+### 🐳 Docker Services
+![Docker](screenshots/docker.png)
 
 ## Important
 The current AI service is a deterministic starter/root-cause engine. To match the full project specification, connect it to an LLM/ML model, add real metrics ingestion, JWT authentication/RBAC, incident correlation, alerting, CI/CD and cloud deployment.
